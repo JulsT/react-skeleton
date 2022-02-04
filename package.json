@@ -3,19 +3,49 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.17.0",
+    "@babel/eslint-parser": "^7.17.0",
+    "@reduxjs/toolkit": "^1.7.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "add": "^2.0.6",
+    "axios": "^0.25.0",
+    "babel-eslint": "^10.1.0",
+    "customize-cra": "^1.0.0",
+    "date-fns": "^2.28.0",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
+    "react-app-rewired": "^2.1.11",
+    "react-datepicker": "^4.6.0",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.25.3",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "react-select": "^5.2.2",
+    "react-table": "^7.7.0",
+    "styled-components": "^5.3.3",
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.17",
+    "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "fix:eslint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx}\" && prettier-eslint --write $PWD/'**/*.{js,vue}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier-eslint --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +64,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.3",
+    "prettier": "^2.5.1",
+    "prettier-eslint": "^13.0.0"
   }
 }

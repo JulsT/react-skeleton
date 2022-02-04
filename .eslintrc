@@ -1,0 +1,43 @@
+{
+	"parser": "@babel/eslint-parser",
+	"env": {
+    "browser": true,
+    "es2021": true
+  },
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 12,
+		"requireConfigFile": false,
+		"ecmaFeatures": {
+      "jsx": true
+    },
+		"babelOptions": {
+			"presets": ["@babel/preset-react"]
+		}
+},
+	"extends": [
+		"airbnb",     
+		"plugin:react/recommended"
+	],  
+	"plugins": [
+		"react",
+    "prettier"
+  ],
+	"settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    },
+    "react": {
+      "version": "latest"
+    }
+  },
+  "rules": {
+    "import/prefer-default-export": 0,
+    "import/no-import-module-exports": ["error", {
+			"exceptions": ["**/*/config-overrides.js"]
+	}]
+  }
+}
