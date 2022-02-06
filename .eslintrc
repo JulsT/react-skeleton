@@ -17,11 +17,11 @@
 },
 	"extends": [
 		"airbnb",     
-		"plugin:react/recommended"
+		"plugin:prettier/recommended"
 	],  
 	"plugins": [
 		"react",
-    "prettier"
+		"prettier"
   ],
 	"settings": {
     "import/resolver": {
@@ -38,6 +38,33 @@
     "import/prefer-default-export": 0,
     "import/no-import-module-exports": ["error", {
 			"exceptions": ["**/*/config-overrides.js"]
-	}]
+	}],
+	"no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
+	"no-unused-expressions": 0,
+	"no-unused-vars": 1,
+	"import/order": [
+		"warn",
+		{
+			"groups": ["builtin", "external", "internal", ["sibling", "parent"]],
+			"pathGroups": [
+				{
+					"pattern": "react",
+					"group": "external",
+					"position": "before"
+				},
+				{
+					"pattern": "@/**",
+					"group": "internal",
+					"position": "after"
+				}
+			],
+			"pathGroupsExcludedImportTypes": ["builtin", "internal"],
+			"newlines-between": "always",
+			"alphabetize": {
+				"order": "asc",
+				"caseInsensitive": true
+			}
+		}
+	]
   }
 }
